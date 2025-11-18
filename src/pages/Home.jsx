@@ -3,7 +3,7 @@ import SearchBar from '../components/SearchBar'
 import SortButtons from '../components/SortButtons'
 import { useState } from 'react'
 
-function Home({ posts, setPosts }) {
+function Home({ posts }) {
     const [query, setQuery] = useState("")
     const [sortOption, setSortOption] = useState("newest")
 
