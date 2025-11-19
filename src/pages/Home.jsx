@@ -2,7 +2,6 @@ import { useState } from "react";
 import PostList from "../components/PostList";
 import SearchBar from "../components/SearchBar";
 import SortButtons from "../components/SortButtons";
-import './Home.css'
 
 function Home({ posts }) {
   const [query, setQuery] = useState("");
@@ -15,12 +14,16 @@ function Home({ posts }) {
   const sorted = [...filtered].sort((a, b) => {
     if (sortOption === "newest") return new Date(b.created_at) - new Date(a.created_at);
     if (sortOption === "upvotes") return b.upvotes - a.upvotes;
+    return 0;
   });
 
   return (
-    <div className="home-page page-container">
-      <SearchBar query={query} setQuery={setQuery} />
-      <SortButtons setSortOption={setSortOption} />
+    <div className="home-container">
+      <div className="page-controls">
+        <SearchBar query={query} setQuery={setQuery} />
+        <SortButtons setSortOption={setSortOption} />
+      </div>
+
       <PostList posts={sorted} />
     </div>
   );

@@ -1,4 +1,68 @@
 .new-post-page {
-  max-width: 700px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  padding: 2rem;
+}
+
+.new-post-container {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 500px; 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.new-post-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.new-post-container input,
+.new-post-container textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e6e6e6;
+  font-size: 1rem;
+  background: #f9f9f9;
+  transition: all 0.2s ease;
+}
+
+.new-post-container input:focus,
+.new-post-container textarea:focus {
+  outline: none;
+  border-color: #e5d9f2;
+  box-shadow: 0 0 0 2px rgba(229, 217, 242, 0.3);
+}
+
+.new-post-container textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.new-post-container button {
+  padding: 0.75rem 1rem;
+  border: none;
+  background: #c8f7dc;
+  color: #2d2d2d;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.new-post-container button:hover {
+  background: #ffd8cc;
+}
+
+.new-post-container .error-msg {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  text-align: center;
 }

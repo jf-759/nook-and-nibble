@@ -1,16 +1,13 @@
-import './SearchBar.css'
-
 function SearchBar({ query, setQuery }) {
-    return (
-        <div className="search-bar">
-            <input
-                type="text"
-                placeholder="Search posts..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-            />
-        </div>
-    )
+  return (
+    <input
+      type="text"
+      placeholder="Search posts..."
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      className="search-bar"
+    />
+  );
 }
 
-export default SearchBar
+export default SearchBar;

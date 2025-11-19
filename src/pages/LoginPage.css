@@ -1,52 +1,45 @@
-.edit-post-page {
+.login-page {
   display: flex;
   justify-content: center;
   align-items: center;
   background: #fafafa;
   padding: 2rem;
-  min-height: 100vh;
 }
 
-.edit-post-container {
+.login-container {
   background: #ffffff;
   padding: 2.5rem 2rem;
-  border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  border: 1px solid #eee;
 }
 
-.edit-post-container h1 {
+.login-container h1 {
   text-align: center;
   font-size: 2rem;
   color: #333;
   margin-bottom: 1rem;
 }
 
-.edit-post-container input,
-.edit-post-container textarea {
+.login-container input {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
+  padding: 0.75rem ;
   border: 1px solid #e6e6e6;
   font-size: 1rem;
   background: #f9f9f9;
   transition: all 0.2s ease;
-  box-sizing: border-box;
 }
 
-.edit-post-container input:focus,
-.edit-post-container textarea:focus {
+.login-container input:focus {
   outline: none;
   border-color: #e5d9f2; 
   box-shadow: 0 0 0 2px rgba(229, 217, 242, 0.3);
 }
 
-.edit-post-container button {
+.login-container button {
   padding: 0.75rem 1rem;
   border-radius: 12px;
   border: none;
@@ -56,30 +49,29 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s ease;
-  margin-top: 0.5rem;
 }
 
-.edit-post-container button:hover {
-  background: #ffd8cc;
+.login-container button:hover {
+  background: #ffd8cc; 
 }
 
-.edit-post-container .error-msg {
+.login-container .error-msg {
   color: #ff6b6b;
   font-size: 0.9rem;
   text-align: center;
 }
 
-.edit-post-links {
+.login-links {
   text-align: center;
   font-size: 0.9rem;
 }
 
-.edit-post-links a {
+.login-links a {
   color: #646cff;
   text-decoration: none;
   font-weight: 500;
 }
 
-.edit-post-links a:hover {
+.login-links a:hover {
   color: #535bf2;
 }

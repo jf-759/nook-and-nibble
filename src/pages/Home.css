@@ -1,5 +1,13 @@
-.home-page {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.home-container {
+  padding: 1.5rem;
+  width: 100%;
 }
+
+.page-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
