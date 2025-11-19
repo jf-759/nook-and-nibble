@@ -1,52 +1,88 @@
-#root {
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 body {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: #fafafa;
+  color: #333;
+}
+
+#root {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+:root {
+  --pastel-mint: #c8f7dc;
+  --pastel-lavender: #e5d9f2;
+  --pastel-peach: #ffd8cc;
+  --soft-gray: #e6e6e6;
+  --text-dark: #2d2d2d;
+  --text-light: #555;
+  --radius: 14px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+
+.page-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section {
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background: var(--pastel-mint);
+}
+
+.btn-hover {
+  background: var(--pastel-peach);
+}
+
+.btn-danger {
+  background: #ffb3b3;
+}
+
+.btn-danger:hover {
+  background: #ff8a8a;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--soft-gray);
+  font-size: 1rem;
+  background: white;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--pastel-lavender);
 }
 
 .card {
   background: white;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  margin-bottom: 1rem;
-}
-
-a {
-  text-decoration: none;
-  color: #8b5e34;
-  font-weight: 600;
-}
-
-a:hover {
-  color: #a67443;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  background: #8b5e34;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-button:hover {
-  background: #a67443;
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid #f1f1f1;
 }

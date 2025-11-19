@@ -1,0 +1,16 @@
+.sort-buttons {
+    display: flex;
+    gap: 0.7rem;
+}
+
+.sort-btn {
+  background: var(--pastel-peach);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.9rem;
+  border: none;
+  cursor: pointer;
+}
+
+.sort-btn:hover {
+  background: var(--pastel-mint);
+}

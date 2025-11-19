@@ -1,37 +1,69 @@
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import './PostDetail.css'
 
 function PostDetail({ posts, setPosts }) {
-    const { id } = useParams()
-    const navigate = useNavigate()
-    const post = posts.find(p => p.id === Number(id))
+  const { id } = useParams();
+  const post = posts.find((p) => p.id === parseInt(id));
+  const navigate = useNavigate();
+  const [commentText, setCommentText] = useState("");
 
-    if (!post) return <p>Post not found.</p>
+  if (!post) return <p>Post not found.</p>;
 
-    const handleUpvote = () => {
-        const updated = posts.map(p => p.id === post.id ? { ...p, upvotes: p.upvotes + 1 } : p)
-        setPosts(updated)
-    }
+  const handleUpvote = () => {
+    const updated = posts.map((p) =>
+      p.id === post.id ? { ...p, upvotes: p.upvotes + 1 } : p
+    );
+    setPosts(updated);
+  };
 
-    const handleDelete = () => {
-        const filtered = posts.filter(p => p.id !== post.id)
-        setPosts(filtered)
-        navigate('/')
-    }
+  const handleComment = (e) => {
+    e.preventDefault();
+    if (!commentText) return;
+    const newComment = { id: post.comments.length + 1, text: commentText };
+    const updated = posts.map((p) =>
+      p.id === post.id ? { ...p, comments: [...p.comments, newComment] } : p
+    );
+    setPosts(updated);
+    setCommentText("");
+  };
 
-    return (
-        <div className="p-6 max-w-3xl mx-auto">
-            <img src={post.image} className="w-full rounded mb-4" />
-            <h1 className="text-2xl font-bold mb-2">{post.title}</h1>
-            <p className="mb-4">{post.content}</p>
+  const handleDelete = () => {
+    const updated = posts.filter((p) => p.id !== post.id);
+    setPosts(updated);
+    navigate("/");
+  };
 
-            <button onClick={handleUpvote} className="px-4 py-2 bg-green-400 rounded">Upvote ({post.upvotes})</button>
+  return (
+    <div className="post-detail page-container">
+      <h2 className="post-detail-title">{post.title}</h2>
+      {post.image && <img src={post.image} alt={post.title} style={{ maxWidth: "100%", borderRadius: "12px" }} />}
+      <p className="post-detail-content">{post.content}</p>
 
-            <div className="mt-4">
-                <Link to={`/posts/${post.id}/edit`} className="mr-4 text-blue-500">Edit</Link>
-                <button onClick={handleDelete} className="text-red-500">Delete</button>
-            </div>
-        </div>
-    )
+      <div className="post-detail-footer">
+        <button className="btn" onClick={handleUpvote}>❤️ Upvote ({post.upvotes})</button>
+        <button className="btn btn-danger" onClick={handleDelete}>Delete Post</button>
+        <button className="btn" onClick={() => navigate(`/posts/${post.id}/edit`)}>Edit Post</button>
+      </div>
+
+      <div className="post-comments section">
+        <h3>Comments</h3>
+        <ul>
+          {post.comments.map((c) => <li key={c.id}>{c.text}</li>)}
+        </ul>
+
+        <form onSubmit={handleComment} className="post-form">
+          <input
+            type="text"
+            placeholder="Add a comment..."
+            value={commentText}
+            onChange={(e) => setCommentText(e.target.value)}
+          />
+          <button type="submit" className="btn">Add Comment</button>
+        </form>
+      </div>
+    </div>
+  );
 }
 
-export default PostDetail
+export default PostDetail;

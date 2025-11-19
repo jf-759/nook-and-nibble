@@ -1,11 +1,18 @@
-import PostCard from './PostCard'
+import PostCard from "./PostCard";
+import './PostList.css'
 
 function PostList({ posts }) {
-    return (
-        <div className="mt-6 space-y-4">
-            {posts.map(p => <PostCard key={p.id} post={p} />)}
-        </div>
-    )
+  if (posts.length === 0) {
+    return <p className="empty-message">No posts yet…</p>;
+  }
+
+  return (
+    <div className="post-list">
+      {posts.map((post) => (
+        <PostCard key={post.id} post={post} />
+      ))}
+    </div>
+  );
 }
 
-export default PostList
+export default PostList;

@@ -1,12 +1,29 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom';
+import "./Navbar.css";
 
 function Navbar() {
-    return (
-        <nav className="p-4 bg-pink-200 flex gap-4">
-            <Link to="/">Home</Link>
-            <Link to="/new">New Post</Link>
-        </nav>
-    )
+  return (
+    <nav className="navbar">
+      <Link to="/" className="navbar-brand">
+        N&N
+      </Link>
+
+      <div className="navbar-links">
+        <NavLink
+          to="/new"
+          className={({ isActive }) =>
+            isActive ? "nav-item active" : "nav-item"
+          }
+        >
+          New Post
+        </NavLink>
+
+        <div className="nav-profile">
+          Profile
+        </div>
+      </div>
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;

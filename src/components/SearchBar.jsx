@@ -1,6 +1,15 @@
-function SearchBar({ query, SetQuery }) {
+import './SearchBar.css'
+
+function SearchBar({ query, setQuery }) {
     return (
-        <input className="w-full p-2 border mb-4" placeholder="Search posts..." value={query} onChange={e => SetQuery(e.target.value)} />
+        <div className="search-bar">
+            <input
+                type="text"
+                placeholder="Search posts..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+            />
+        </div>
     )
 }
 

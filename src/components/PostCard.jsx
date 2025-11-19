@@ -1,13 +1,19 @@
-import { Link } from 'react-router-dom'
-
+import { Link } from "react-router-dom";
+import './PostCard.css'
 
 function PostCard({ post }) {
-return (
-<Link to={`/posts/${post.id}`} className="block p-4 border rounded shadow">
-<h2 className="text-xl font-semibold">{post.title}</h2>
-<p className="text-sm text-gray-500">{new Date(post.created_at).toLocaleString()}</p>
-<p className="mt-2">Upvotes: {post.upvotes}</p>
-</Link>
-)
+  return (
+    <Link to={`/posts/${post.id}`} className="post-card">
+      <div className="post-card-header">
+        <h3 className="post-card-title">{post.title}</h3>
+        <span className="post-card-upvotes">❤️ {post.upvotes}</span>
+      </div>
+
+      <p className="post-card-date">
+        {new Date(post.created_at).toLocaleString()}
+      </p>
+    </Link>
+  );
 }
-export default PostCard
+
+export default PostCard;

@@ -1,10 +1,16 @@
+import './SortButtons.css'
+
 function SortButtons({ setSortOption }) {
-    return (
-        <div className="flex gap-2 mb-4">
-            <button onClick={() => setSortOption("newest")} className="px-3 py-1 bg-gray-200 rounded">Newest</button>
-            <button onClick={() => setSortOption("upvotes")} className="px-3 py-1 bg-gray-200 rounded">Most Upvoted</button>
-        </div>
-    )
+  return (
+    <div className="sort-buttons">
+      <button className="sort-btn" onClick={() => setSortOption("newest")}>
+        Newest
+      </button>
+      <button className="sort-btn" onClick={() => setSortOption("upvotes")}>
+        Upvotes
+      </button>
+    </div>
+  );
 }
 
-export default SortButtons
+export default SortButtons;

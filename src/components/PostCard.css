@@ -1,0 +1,27 @@
+.post-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.post-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.post-card-content {
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+.post-card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+}
+

@@ -13,6 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -24,11 +30,18 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #fafafa;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  padding: 200px;
 }
+
 
 h1 {
   font-size: 3.2em;
