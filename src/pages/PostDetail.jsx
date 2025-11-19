@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { supabase } from "../supabaseClient";
 import './PostDetail.css';
 
 function PostDetail({ posts, setPosts }) {
@@ -10,29 +11,67 @@ function PostDetail({ posts, setPosts }) {
 
   if (!post) return <p>Post not found.</p>;
 
-  const handleUpvote = () => {
-    const updatedPosts = posts.map((p) =>
-      p.id === post.id ? { ...p, upvotes: p.upvotes + 1 } : p
-    );
-    setPosts(updatedPosts);
+  const handleUpvote = async () => {
+    try {
+      const { error } = await supabase
+        .from("posts")
+        .update({ upvotes: post.upvotes + 1 })
+        .eq("id", post.id);
+
+      if (error) throw error;
+
+      const updatedPosts = posts.map((p) =>
+        p.id === post.id ? { ...p, upvotes: p.upvotes + 1 } : p
+      );
+      setPosts(updatedPosts);
+    } catch (error) {
+      console.error("Error upvoting:", error.message);
+      alert("Failed to upvote. Please try again.");
+    }
   };
 
-  const handleComment = (e) => {
+  const handleComment = async (e) => {
     e.preventDefault();
     if (!commentText.trim()) return;
 
-    const newComment = { id: post.comments.length + 1, text: commentText };
-    const updatedPosts = posts.map((p) =>
-      p.id === post.id ? { ...p, comments: [...p.comments, newComment] } : p
-    );
-    setPosts(updatedPosts);
-    setCommentText("");
+    try {
+      const newComment = { id: post.comments.length + 1, text: commentText };
+      const updatedComments = [...post.comments, newComment];
+
+      const { error } = await supabase
+        .from("posts")
+        .update({ comments: updatedComments })
+        .eq("id", post.id);
+
+      if (error) throw error;
+
+      const updatedPosts = posts.map((p) =>
+        p.id === post.id ? { ...p, comments: updatedComments } : p
+      );
+      setPosts(updatedPosts);
+      setCommentText("");
+    } catch (error) {
+      console.error("Error adding comment:", error.message);
+      alert("Failed to add comment. Please try again.");
+    }
   };
 
-  const handleDelete = () => {
-    const updatedPosts = posts.filter((p) => p.id !== post.id);
-    setPosts(updatedPosts);
-    navigate("/");
+  const handleDelete = async () => {
+    try {
+      const { error } = await supabase
+        .from("posts")
+        .delete()
+        .eq("id", post.id);
+
+      if (error) throw error;
+
+      const updatedPosts = posts.filter((p) => p.id !== post.id);
+      setPosts(updatedPosts);
+      navigate("/");
+    } catch (error) {
+      console.error("Error deleting post:", error.message);
+      alert("Failed to delete post. Please try again.");
+    }
   };
 
   return (
