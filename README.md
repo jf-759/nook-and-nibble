@@ -37,7 +37,7 @@ The following **optional** features are implemented:
 - [x] Filters use different input types
   - Search uses a text input
   - Sort uses dropdown/select menu
-- [ ] The user can enter specific bounds for filter values
+- [x] The user can enter specific bounds for filter values
 
 The following **additional** features are implemented:
 
