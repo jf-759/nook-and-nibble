@@ -1,9 +1,12 @@
+import honeyLavenderLatte from "./assets/honey-lavender-latte.jpg"
+import matchaMochiDonut from "./assets/matcha-mochi-donut.jpeg"
+
 export const initialPosts = [
   {
     id: 1,
     title: "Honey Lavender Latte",
     content: "A cozy floral latte from my favorite corner café. Light, sweet, and calming.",
-    image: "https://i.imgur.com/9R7wQOQ.jpg",
+    image: honeyLavenderLatte,
     upvotes: 12,
     created_at: "2025-01-01T10:00:00Z",
     comments: [
@@ -15,7 +18,7 @@ export const initialPosts = [
     id: 2,
     title: "Matcha Mochi Donut",
     content: "Soft, chewy, and dusted in powdered sugar. A pastel green dream of a dessert.",
-    image: "https://i.imgur.com/8s4xR3T.jpeg",
+    image: matchaMochiDonut,
     upvotes: 7,
     created_at: "2025-01-05T15:30:00Z",
     comments: [

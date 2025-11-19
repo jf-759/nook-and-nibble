@@ -1,8 +1,3 @@
-.home-container {
-  padding: 1.5rem;
-  width: 100%;
-}
-
 .page-controls {
   display: flex;
   flex-wrap: wrap;
@@ -11,3 +6,10 @@
   margin-bottom: 1.5rem;
 }
 
+.page-controls input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #e6e6e6;
+  background: #f9f9f9;
+}

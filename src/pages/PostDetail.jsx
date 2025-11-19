@@ -80,8 +80,9 @@ function PostDetail({ posts, setPosts }) {
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
           />
-          <button type="submit" className="btn">Add Comment</button>
+          <button type="submit">Add Comment</button>
         </form>
+
       </div>
     </div>
   );

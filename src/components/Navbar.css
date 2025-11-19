@@ -1,7 +1,6 @@
 .navbar {
-  background: var(--pastel-lavender);
-  padding: 1.5rem;
-  border-radius: var(--radius);
+  background: var(--color-secondary);
+  padding: 1.5rem 2rem;
   margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
@@ -10,40 +9,27 @@
 }
 
 .navbar a {
-  text-decoration: none;
-  color: var(--text-dark);
+  color: var(--color-text);
   font-weight: 600;
 }
 
 .navbar-links {
   display: flex;
-  gap: 2rem; 
-  justify-content: center; 
+  gap: 1.5rem;
   align-items: center;
 }
 
-
 .navbar-links a:hover {
-  color: var(--pastel-peach);
+  color: var(--color-primary);
 }
 
-.nav-profile {
-  font-weight: 500;
-  color: var(--text-dark);
-  padding: 0.3rem 0.6rem;
-  border-radius: var(--radius);
-  background: var(--pastel-peach);
+.logout-btn {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.nav-profile:hover {
-  background: var(--pastel-mint);
-  transform: translateY(-2px);
-}
-
-.navbar-brand {
-  font-size: 1.7rem;
-  font-weight: 700;
-  margin-right: 2rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }

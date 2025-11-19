@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
-import './PostCard.css'
+import './PostCard.css';
 
 function PostCard({ post }) {
   return (
     <Link to={`/posts/${post.id}`} className="post-card">
-      <div className="post-card-header">
-        <h3 className="post-card-title">{post.title}</h3>
-        <span className="post-card-upvotes">❤️ {post.upvotes}</span>
+      {post.image && (
+        <img
+          src={post.image}
+          alt={post.title}
+          className="post-card-image"
+        />
+      )}
+      <div className="post-card-info">
+        <h3>{post.title}</h3>
+        <p>❤️ {post.upvotes}</p>
       </div>
-
-      <p className="post-card-date">
-        {new Date(post.created_at).toLocaleString()}
-      </p>
     </Link>
   );
 }

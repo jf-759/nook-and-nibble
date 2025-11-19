@@ -1,10 +1,10 @@
 import PostCard from "./PostCard";
-import "./PostList.css";
+import './PostList.css';
 
 function PostList({ posts }) {
   return (
     <div className="post-list">
-      {posts.map(post => (
+      {posts.map((post) => (
         <PostCard key={post.id} post={post} />
       ))}
     </div>

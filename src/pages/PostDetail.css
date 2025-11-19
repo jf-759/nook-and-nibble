@@ -75,11 +75,15 @@
 }
 
 .post-form {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  width: 100%;
-  box-sizing: border-box;
+  max-width: 400px;
+  margin-top: 1rem;
 }
 
 .post-form input {
@@ -90,7 +94,6 @@
   font-size: 1rem;
   background: #f9f9f9;
   transition: all 0.2s ease;
-  box-sizing: border-box;
 }
 
 .post-form input:focus {

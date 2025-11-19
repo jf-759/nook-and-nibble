@@ -2,14 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fafafa;
   padding: 2rem;
 }
 
 .new-post-container {
-  background: #ffffff;
   padding: 2.5rem 2rem;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
   width: 100%;
   max-width: 500px; 
   display: flex;
@@ -32,6 +31,7 @@
   font-size: 1rem;
   background: #f9f9f9;
   transition: all 0.2s ease;
+    border-radius: var(--radius);
 }
 
 .new-post-container input:focus,

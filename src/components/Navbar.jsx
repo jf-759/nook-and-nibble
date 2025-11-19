@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { useEffect, useState } from "react";
 import "./Navbar.css";
@@ -6,6 +6,7 @@ import "./Navbar.css";
 function Navbar() {
   const [user, setUser] = useState(null);    
   const [profile, setProfile] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchUser() {
@@ -42,6 +43,11 @@ function Navbar() {
     };
   }, []);
 
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    navigate("/login");
+  };
+
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-brand">N&N</Link>
@@ -71,7 +77,11 @@ function Navbar() {
             </NavLink>
           </>
         ) : (
-          <div className="nav-profile">{profile?.username}</div>
+          <>
+            <button onClick={handleLogout} className="nav-item logout-btn">
+              Logout
+            </button>
+          </>
         )}
       </div>
     </nav>
